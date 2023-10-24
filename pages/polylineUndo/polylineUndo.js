@@ -55,7 +55,7 @@ class UndoManager{
         return true
     }
 }
-class UndoCommand {
+class ConcreteCommand {
     constructor(polyline, dessin){
         this.polyline = polyline
         this.dessin = dessin
@@ -196,7 +196,7 @@ buttonRedo.addEventListener("click", () => {undoManager.redo() })
                         polyline.stroke("black"); // On change la couleur
                         // On sauvegarde la polyline dans la couche de dessin
                         dessin.add(polyline); // On l'ajoute à la couche de dessin
-                        undoManager.execute(new UndoCommand(polyline, dessin))
+                        undoManager.execute(new ConcreteCommand(polyline, dessin))
                     },
                     addPoint: (context, event) => {
                         const pos = stage.getPointerPosition();
